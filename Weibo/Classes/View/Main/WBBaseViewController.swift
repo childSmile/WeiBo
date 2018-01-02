@@ -8,10 +8,17 @@
 
 import UIKit
 
+let statusBarHeight = UIApplication.shared.statusBarFrame.height
+let navHeight = UINavigationBar.appearance().frame.size.height
+
 class WBBaseViewController: UIViewController {
     
+    //表格视图  如果用户未登录 就不创建
+    var tableview:UITableView?
+    
+    
     //自定义导航条
-    lazy var navigationBar = UINavigationBar(frame: CGRect(x: 0, y: 0, width: UIScreen.cz_screenWidth(), height: 64))
+    lazy var navigationBar = UINavigationBar(frame: CGRect(x: 0, y: statusBarHeight, width: UIScreen.cz_screenWidth(), height: navHeight))
     
     //自定义导航条目 - 以后设置导航栏内容 统一使用这个
     lazy var navItem = UINavigationItem()
@@ -42,6 +49,20 @@ extension WBBaseViewController {
     func setupUI() {
         view.backgroundColor = UIColor.cz_random()
         
+        setupNavgationBar()
+        setupTableView()
+        
+    }
+    
+    //设置表格视图
+    func setupTableView() {
+        tableview = UITableView.init(frame: view.bounds, style: .plain)
+//        view.addSubview(tableview!)
+        view.insertSubview(tableview!, belowSubview: navigationBar)
+    }
+    
+    //设置导航条
+    private func setupNavgationBar() {
         //添加导航条
         view.addSubview(navigationBar)
         
@@ -53,6 +74,5 @@ extension WBBaseViewController {
         
         //设置navBar的字体渲染颜色
         navigationBar.titleTextAttributes = [NSForegroundColorAttributeName:UIColor.darkGray]
-        
     }
 }

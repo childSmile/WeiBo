@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2727669F1FFB659400B17CC5 /* Macro.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2727669E1FFB659400B17CC5 /* Macro.swift */; };
 		7A67BA561E8A445600CC0F09 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A67BA551E8A445600CC0F09 /* AppDelegate.swift */; };
 		7A67BA5D1E8A445600CC0F09 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7A67BA5C1E8A445600CC0F09 /* Assets.xcassets */; };
 		7A67BA6B1E8A445600CC0F09 /* WeiboTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A67BA6A1E8A445600CC0F09 /* WeiboTests.swift */; };
@@ -54,6 +55,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2727669E1FFB659400B17CC5 /* Macro.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Macro.swift; sourceTree = "<group>"; };
+		272766A01FFB659E00B17CC5 /* xh_macro_define.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = xh_macro_define.h; sourceTree = "<group>"; };
 		7A67BA521E8A445600CC0F09 /* Weibo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Weibo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7A67BA551E8A445600CC0F09 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7A67BA5C1E8A445600CC0F09 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -127,6 +130,31 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2727669D1FFB5CD800B17CC5 /* 主控制器 */ = {
+			isa = PBXGroup;
+			children = (
+				7A67BA8D1E8A464D00CC0F09 /* WBMainViewController.swift */,
+				7A67BA8F1E8A467E00CC0F09 /* WBNavigationController.swift */,
+			);
+			path = "主控制器";
+			sourceTree = "<group>";
+		};
+		27E810191FA861B5003DAA7B /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Model;
+			path = Weibo/Classes/Model;
+			sourceTree = SOURCE_ROOT;
+		};
+		27E8101A1FA861CC003DAA7B /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = ViewModel;
+			path = Weibo/Classes/ViewModel;
+			sourceTree = SOURCE_ROOT;
+		};
 		7A67BA491E8A445600CC0F09 = {
 			isa = PBXGroup;
 			children = (
@@ -152,6 +180,8 @@
 			children = (
 				7A67BA831E8A45AE00CC0F09 /* Classes */,
 				7A67BA551E8A445600CC0F09 /* AppDelegate.swift */,
+				2727669E1FFB659400B17CC5 /* Macro.swift */,
+				272766A01FFB659E00B17CC5 /* xh_macro_define.h */,
 				7A67BAC11E8A494000CC0F09 /* WeiBo-Bridge.h */,
 				7A67BA5C1E8A445600CC0F09 /* Assets.xcassets */,
 				7A67BA611E8A445600CC0F09 /* Info.plist */,
@@ -180,19 +210,12 @@
 		7A67BA831E8A45AE00CC0F09 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				27E810191FA861B5003DAA7B /* Model */,
+				27E8101A1FA861CC003DAA7B /* ViewModel */,
 				7A67BA851E8A45AE00CC0F09 /* Tools */,
 				7A67BA861E8A45AE00CC0F09 /* View */,
-				7A67BA841E8A45AE00CC0F09 /* Model */,
-				7A67BA8C1E8A45AE00CC0F09 /* ViewModel */,
 			);
 			path = Classes;
-			sourceTree = "<group>";
-		};
-		7A67BA841E8A45AE00CC0F09 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
 			sourceTree = "<group>";
 		};
 		7A67BA851E8A45AE00CC0F09 /* Tools */ = {
@@ -235,9 +258,8 @@
 		7A67BA891E8A45AE00CC0F09 /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				2727669D1FFB5CD800B17CC5 /* 主控制器 */,
 				7A67BACC1E8A667800CC0F09 /* 测试 */,
-				7A67BA8D1E8A464D00CC0F09 /* WBMainViewController.swift */,
-				7A67BA8F1E8A467E00CC0F09 /* WBNavigationController.swift */,
 				7A67BA911E8A469C00CC0F09 /* WBBaseViewController.swift */,
 			);
 			path = Main;
@@ -257,13 +279,6 @@
 				7A67BA991E8A472D00CC0F09 /* WBProfileViewController.swift */,
 			);
 			path = Profile;
-			sourceTree = "<group>";
-		};
-		7A67BA8C1E8A45AE00CC0F09 /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		7A67BA9B1E8A490900CC0F09 /* Additions */ = {
@@ -464,6 +479,7 @@
 				7A67BABE1E8A490900CC0F09 /* UIScreen+CZAddition.m in Sources */,
 				7A67BA961E8A471900CC0F09 /* WBDiscoverViewController.swift in Sources */,
 				7A67BAC61E8A4CA700CC0F09 /* UIBarButtonItem+Extensions.swift in Sources */,
+				2727669F1FFB659400B17CC5 /* Macro.swift in Sources */,
 				7A67BAB71E8A490900CC0F09 /* NSObject+CZRuntime.m in Sources */,
 				7A67BA941E8A46F700CC0F09 /* WBHomeViewController.swift in Sources */,
 				7A67BA561E8A445600CC0F09 /* AppDelegate.swift in Sources */,

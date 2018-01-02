@@ -15,10 +15,23 @@ class WBMainViewController: UITabBarController {
         
         setupChildControllers()
         setupComposeButton()
+        
+        /**
+         
+         使用代码控制设备的方向 好处 可以在需要横屏的时候 单独处理
+         设置支持的方向之后当前的控制器以及自控制器都会遵守这个方向
+         如果播放视频 通常使用 modal 展现
+         
+         **/
+        UIDevice.current.setValue(UIInterfaceOrientation.landscapeLeft.rawValue, forKey: "orientation")
 
         // Do any additional setup after loading the view.
     }
     
+    override var shouldAutorotate: Bool {
+        return true
+    }
+
     //MARK-监听方法
     //撰写微博
     //FIXME 没有实现
@@ -26,6 +39,12 @@ class WBMainViewController: UITabBarController {
     // @objc 允许这个函数在运行时 通过OC的消息机制被调用
     @objc fileprivate func composeStatus() {
         print("撰写微博")
+        
+        //测试方向旋转
+        let vc = UIViewController()
+        vc.view.backgroundColor = UIColor.cz_random()
+        let nav = UINavigationController.init(rootViewController: vc)
+        present(nav, animated: true, completion: nil)
     }
     
     //MARK-私有控件
